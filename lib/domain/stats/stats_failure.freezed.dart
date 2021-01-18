@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'search_covid_failure.dart';
+part of 'stats_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,8 +10,8 @@ part of 'search_covid_failure.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$SearchCovidFailureTearOff {
-  const _$SearchCovidFailureTearOff();
+class _$StatsFailureTearOff {
+  const _$StatsFailureTearOff();
 
 // ignore: unused_element
   _Unexpected unexpected() {
@@ -19,17 +19,17 @@ class _$SearchCovidFailureTearOff {
   }
 
 // ignore: unused_element
-  _unableToLocate unableToLocate() {
-    return const _unableToLocate();
+  _UnableToLocate unableToLocate() {
+    return const _UnableToLocate();
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $SearchCovidFailure = _$SearchCovidFailureTearOff();
+const $StatsFailure = _$StatsFailureTearOff();
 
 /// @nodoc
-mixin _$SearchCovidFailure {
+mixin _$StatsFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult unexpected(),
@@ -44,31 +44,30 @@ mixin _$SearchCovidFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult unexpected(_Unexpected value),
-    @required TResult unableToLocate(_unableToLocate value),
+    @required TResult unableToLocate(_UnableToLocate value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(_Unexpected value),
-    TResult unableToLocate(_unableToLocate value),
+    TResult unableToLocate(_UnableToLocate value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $SearchCovidFailureCopyWith<$Res> {
-  factory $SearchCovidFailureCopyWith(
-          SearchCovidFailure value, $Res Function(SearchCovidFailure) then) =
-      _$SearchCovidFailureCopyWithImpl<$Res>;
+abstract class $StatsFailureCopyWith<$Res> {
+  factory $StatsFailureCopyWith(
+          StatsFailure value, $Res Function(StatsFailure) then) =
+      _$StatsFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SearchCovidFailureCopyWithImpl<$Res>
-    implements $SearchCovidFailureCopyWith<$Res> {
-  _$SearchCovidFailureCopyWithImpl(this._value, this._then);
+class _$StatsFailureCopyWithImpl<$Res> implements $StatsFailureCopyWith<$Res> {
+  _$StatsFailureCopyWithImpl(this._value, this._then);
 
-  final SearchCovidFailure _value;
+  final StatsFailure _value;
   // ignore: unused_field
-  final $Res Function(SearchCovidFailure) _then;
+  final $Res Function(StatsFailure) _then;
 }
 
 /// @nodoc
@@ -79,8 +78,7 @@ abstract class _$UnexpectedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$UnexpectedCopyWithImpl<$Res>
-    extends _$SearchCovidFailureCopyWithImpl<$Res>
+class __$UnexpectedCopyWithImpl<$Res> extends _$StatsFailureCopyWithImpl<$Res>
     implements _$UnexpectedCopyWith<$Res> {
   __$UnexpectedCopyWithImpl(
       _Unexpected _value, $Res Function(_Unexpected) _then)
@@ -96,7 +94,7 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   String toString() {
-    return 'SearchCovidFailure.unexpected()';
+    return 'StatsFailure.unexpected()';
   }
 
   @override
@@ -136,7 +134,7 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult unexpected(_Unexpected value),
-    @required TResult unableToLocate(_unableToLocate value),
+    @required TResult unableToLocate(_UnableToLocate value),
   }) {
     assert(unexpected != null);
     assert(unableToLocate != null);
@@ -147,7 +145,7 @@ class _$_Unexpected implements _Unexpected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(_Unexpected value),
-    TResult unableToLocate(_unableToLocate value),
+    TResult unableToLocate(_UnableToLocate value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -158,41 +156,41 @@ class _$_Unexpected implements _Unexpected {
   }
 }
 
-abstract class _Unexpected implements SearchCovidFailure {
+abstract class _Unexpected implements StatsFailure {
   const factory _Unexpected() = _$_Unexpected;
 }
 
 /// @nodoc
-abstract class _$unableToLocateCopyWith<$Res> {
-  factory _$unableToLocateCopyWith(
-          _unableToLocate value, $Res Function(_unableToLocate) then) =
-      __$unableToLocateCopyWithImpl<$Res>;
+abstract class _$UnableToLocateCopyWith<$Res> {
+  factory _$UnableToLocateCopyWith(
+          _UnableToLocate value, $Res Function(_UnableToLocate) then) =
+      __$UnableToLocateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$unableToLocateCopyWithImpl<$Res>
-    extends _$SearchCovidFailureCopyWithImpl<$Res>
-    implements _$unableToLocateCopyWith<$Res> {
-  __$unableToLocateCopyWithImpl(
-      _unableToLocate _value, $Res Function(_unableToLocate) _then)
-      : super(_value, (v) => _then(v as _unableToLocate));
+class __$UnableToLocateCopyWithImpl<$Res>
+    extends _$StatsFailureCopyWithImpl<$Res>
+    implements _$UnableToLocateCopyWith<$Res> {
+  __$UnableToLocateCopyWithImpl(
+      _UnableToLocate _value, $Res Function(_UnableToLocate) _then)
+      : super(_value, (v) => _then(v as _UnableToLocate));
 
   @override
-  _unableToLocate get _value => super._value as _unableToLocate;
+  _UnableToLocate get _value => super._value as _UnableToLocate;
 }
 
 /// @nodoc
-class _$_unableToLocate implements _unableToLocate {
-  const _$_unableToLocate();
+class _$_UnableToLocate implements _UnableToLocate {
+  const _$_UnableToLocate();
 
   @override
   String toString() {
-    return 'SearchCovidFailure.unableToLocate()';
+    return 'StatsFailure.unableToLocate()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _unableToLocate);
+    return identical(this, other) || (other is _UnableToLocate);
   }
 
   @override
@@ -227,7 +225,7 @@ class _$_unableToLocate implements _unableToLocate {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult unexpected(_Unexpected value),
-    @required TResult unableToLocate(_unableToLocate value),
+    @required TResult unableToLocate(_UnableToLocate value),
   }) {
     assert(unexpected != null);
     assert(unableToLocate != null);
@@ -238,7 +236,7 @@ class _$_unableToLocate implements _unableToLocate {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(_Unexpected value),
-    TResult unableToLocate(_unableToLocate value),
+    TResult unableToLocate(_UnableToLocate value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -249,6 +247,6 @@ class _$_unableToLocate implements _unableToLocate {
   }
 }
 
-abstract class _unableToLocate implements SearchCovidFailure {
-  const factory _unableToLocate() = _$_unableToLocate;
+abstract class _UnableToLocate implements StatsFailure {
+  const factory _UnableToLocate() = _$_UnableToLocate;
 }
