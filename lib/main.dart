@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
-void main() {
+Future<void> main() async {
+  // used to get load the file that has the api key
+  await DotEnv.load(fileName: '.env');
   runApp(MyApp());
 }
 
