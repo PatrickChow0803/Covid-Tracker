@@ -23,6 +23,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  freezed_annotation:
+  dartz: ^0.9.2
+  flutter_bloc: ^6.1.1
+  get_it: ^5.0.4
+  injectable: ^1.0.7
+  lint: ^1.5.1
+  flushbar: ^1.10.4
+  rxdart: ^0.25.0
+  flutter_hooks: ^0.15.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -30,10 +39,13 @@ dependencies:
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  build_runner:
+  freezed:
   flutter_test:
     sdk: flutter
   integration_test:
     sdk: flutter
+  injectable_generator:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
