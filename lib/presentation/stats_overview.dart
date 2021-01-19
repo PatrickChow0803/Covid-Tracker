@@ -10,9 +10,9 @@ class StatsOverview extends StatelessWidget {
       body: Center(
         child: PlatformButton(
           onPressed: () {
-            final stats = statsRepo.getStatsByCountry('USA');
+            final stats = statsRepo.getStatsAll();
           },
-          child: const Text('Test getStatsByCountry'),
+          child: const Text('Test Get All'),
         ),
       ),
     );
