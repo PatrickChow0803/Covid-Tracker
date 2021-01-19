@@ -15,14 +15,20 @@ class _$StatsTearOff {
 
 // ignore: unused_element
   _Stats call(
-      {@required String state,
-      @required int totalOfCases,
-      @required int totalOfDeaths,
-      @required int totalOfRecovered,
+      {@required String country,
+      @required String totalCases,
+      @required String activeCases,
+      @required String newCases,
+      @required String newDeaths,
+      @required String totalOfDeaths,
+      @required String totalOfRecovered,
       @required String dateUpdated}) {
     return _Stats(
-      state: state,
-      totalOfCases: totalOfCases,
+      country: country,
+      totalCases: totalCases,
+      activeCases: activeCases,
+      newCases: newCases,
+      newDeaths: newDeaths,
       totalOfDeaths: totalOfDeaths,
       totalOfRecovered: totalOfRecovered,
       dateUpdated: dateUpdated,
@@ -36,10 +42,13 @@ const $Stats = _$StatsTearOff();
 
 /// @nodoc
 mixin _$Stats {
-  String get state;
-  int get totalOfCases;
-  int get totalOfDeaths;
-  int get totalOfRecovered;
+  String get country;
+  String get totalCases;
+  String get activeCases;
+  String get newCases;
+  String get newDeaths;
+  String get totalOfDeaths;
+  String get totalOfRecovered;
   String get dateUpdated;
 
   @JsonKey(ignore: true)
@@ -51,10 +60,13 @@ abstract class $StatsCopyWith<$Res> {
   factory $StatsCopyWith(Stats value, $Res Function(Stats) then) =
       _$StatsCopyWithImpl<$Res>;
   $Res call(
-      {String state,
-      int totalOfCases,
-      int totalOfDeaths,
-      int totalOfRecovered,
+      {String country,
+      String totalCases,
+      String activeCases,
+      String newCases,
+      String newDeaths,
+      String totalOfDeaths,
+      String totalOfRecovered,
       String dateUpdated});
 }
 
@@ -68,22 +80,29 @@ class _$StatsCopyWithImpl<$Res> implements $StatsCopyWith<$Res> {
 
   @override
   $Res call({
-    Object state = freezed,
-    Object totalOfCases = freezed,
+    Object country = freezed,
+    Object totalCases = freezed,
+    Object activeCases = freezed,
+    Object newCases = freezed,
+    Object newDeaths = freezed,
     Object totalOfDeaths = freezed,
     Object totalOfRecovered = freezed,
     Object dateUpdated = freezed,
   }) {
     return _then(_value.copyWith(
-      state: state == freezed ? _value.state : state as String,
-      totalOfCases:
-          totalOfCases == freezed ? _value.totalOfCases : totalOfCases as int,
+      country: country == freezed ? _value.country : country as String,
+      totalCases:
+          totalCases == freezed ? _value.totalCases : totalCases as String,
+      activeCases:
+          activeCases == freezed ? _value.activeCases : activeCases as String,
+      newCases: newCases == freezed ? _value.newCases : newCases as String,
+      newDeaths: newDeaths == freezed ? _value.newDeaths : newDeaths as String,
       totalOfDeaths: totalOfDeaths == freezed
           ? _value.totalOfDeaths
-          : totalOfDeaths as int,
+          : totalOfDeaths as String,
       totalOfRecovered: totalOfRecovered == freezed
           ? _value.totalOfRecovered
-          : totalOfRecovered as int,
+          : totalOfRecovered as String,
       dateUpdated:
           dateUpdated == freezed ? _value.dateUpdated : dateUpdated as String,
     ));
@@ -96,10 +115,13 @@ abstract class _$StatsCopyWith<$Res> implements $StatsCopyWith<$Res> {
       __$StatsCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String state,
-      int totalOfCases,
-      int totalOfDeaths,
-      int totalOfRecovered,
+      {String country,
+      String totalCases,
+      String activeCases,
+      String newCases,
+      String newDeaths,
+      String totalOfDeaths,
+      String totalOfRecovered,
       String dateUpdated});
 }
 
@@ -114,22 +136,29 @@ class __$StatsCopyWithImpl<$Res> extends _$StatsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object state = freezed,
-    Object totalOfCases = freezed,
+    Object country = freezed,
+    Object totalCases = freezed,
+    Object activeCases = freezed,
+    Object newCases = freezed,
+    Object newDeaths = freezed,
     Object totalOfDeaths = freezed,
     Object totalOfRecovered = freezed,
     Object dateUpdated = freezed,
   }) {
     return _then(_Stats(
-      state: state == freezed ? _value.state : state as String,
-      totalOfCases:
-          totalOfCases == freezed ? _value.totalOfCases : totalOfCases as int,
+      country: country == freezed ? _value.country : country as String,
+      totalCases:
+          totalCases == freezed ? _value.totalCases : totalCases as String,
+      activeCases:
+          activeCases == freezed ? _value.activeCases : activeCases as String,
+      newCases: newCases == freezed ? _value.newCases : newCases as String,
+      newDeaths: newDeaths == freezed ? _value.newDeaths : newDeaths as String,
       totalOfDeaths: totalOfDeaths == freezed
           ? _value.totalOfDeaths
-          : totalOfDeaths as int,
+          : totalOfDeaths as String,
       totalOfRecovered: totalOfRecovered == freezed
           ? _value.totalOfRecovered
-          : totalOfRecovered as int,
+          : totalOfRecovered as String,
       dateUpdated:
           dateUpdated == freezed ? _value.dateUpdated : dateUpdated as String,
     ));
@@ -139,43 +168,65 @@ class __$StatsCopyWithImpl<$Res> extends _$StatsCopyWithImpl<$Res>
 /// @nodoc
 class _$_Stats extends _Stats {
   const _$_Stats(
-      {@required this.state,
-      @required this.totalOfCases,
+      {@required this.country,
+      @required this.totalCases,
+      @required this.activeCases,
+      @required this.newCases,
+      @required this.newDeaths,
       @required this.totalOfDeaths,
       @required this.totalOfRecovered,
       @required this.dateUpdated})
-      : assert(state != null),
-        assert(totalOfCases != null),
+      : assert(country != null),
+        assert(totalCases != null),
+        assert(activeCases != null),
+        assert(newCases != null),
+        assert(newDeaths != null),
         assert(totalOfDeaths != null),
         assert(totalOfRecovered != null),
         assert(dateUpdated != null),
         super._();
 
   @override
-  final String state;
+  final String country;
   @override
-  final int totalOfCases;
+  final String totalCases;
   @override
-  final int totalOfDeaths;
+  final String activeCases;
   @override
-  final int totalOfRecovered;
+  final String newCases;
+  @override
+  final String newDeaths;
+  @override
+  final String totalOfDeaths;
+  @override
+  final String totalOfRecovered;
   @override
   final String dateUpdated;
 
   @override
   String toString() {
-    return 'Stats(state: $state, totalOfCases: $totalOfCases, totalOfDeaths: $totalOfDeaths, totalOfRecovered: $totalOfRecovered, dateUpdated: $dateUpdated)';
+    return 'Stats(country: $country, totalCases: $totalCases, activeCases: $activeCases, newCases: $newCases, newDeaths: $newDeaths, totalOfDeaths: $totalOfDeaths, totalOfRecovered: $totalOfRecovered, dateUpdated: $dateUpdated)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Stats &&
-            (identical(other.state, state) ||
-                const DeepCollectionEquality().equals(other.state, state)) &&
-            (identical(other.totalOfCases, totalOfCases) ||
+            (identical(other.country, country) ||
                 const DeepCollectionEquality()
-                    .equals(other.totalOfCases, totalOfCases)) &&
+                    .equals(other.country, country)) &&
+            (identical(other.totalCases, totalCases) ||
+                const DeepCollectionEquality()
+                    .equals(other.totalCases, totalCases)) &&
+            (identical(other.activeCases, activeCases) ||
+                const DeepCollectionEquality()
+                    .equals(other.activeCases, activeCases)) &&
+            (identical(other.newCases, newCases) ||
+                const DeepCollectionEquality()
+                    .equals(other.newCases, newCases)) &&
+            (identical(other.newDeaths, newDeaths) ||
+                const DeepCollectionEquality()
+                    .equals(other.newDeaths, newDeaths)) &&
             (identical(other.totalOfDeaths, totalOfDeaths) ||
                 const DeepCollectionEquality()
                     .equals(other.totalOfDeaths, totalOfDeaths)) &&
@@ -190,8 +241,11 @@ class _$_Stats extends _Stats {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(state) ^
-      const DeepCollectionEquality().hash(totalOfCases) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(totalCases) ^
+      const DeepCollectionEquality().hash(activeCases) ^
+      const DeepCollectionEquality().hash(newCases) ^
+      const DeepCollectionEquality().hash(newDeaths) ^
       const DeepCollectionEquality().hash(totalOfDeaths) ^
       const DeepCollectionEquality().hash(totalOfRecovered) ^
       const DeepCollectionEquality().hash(dateUpdated);
@@ -205,20 +259,29 @@ class _$_Stats extends _Stats {
 abstract class _Stats extends Stats {
   const _Stats._() : super._();
   const factory _Stats(
-      {@required String state,
-      @required int totalOfCases,
-      @required int totalOfDeaths,
-      @required int totalOfRecovered,
+      {@required String country,
+      @required String totalCases,
+      @required String activeCases,
+      @required String newCases,
+      @required String newDeaths,
+      @required String totalOfDeaths,
+      @required String totalOfRecovered,
       @required String dateUpdated}) = _$_Stats;
 
   @override
-  String get state;
+  String get country;
   @override
-  int get totalOfCases;
+  String get totalCases;
   @override
-  int get totalOfDeaths;
+  String get activeCases;
   @override
-  int get totalOfRecovered;
+  String get newCases;
+  @override
+  String get newDeaths;
+  @override
+  String get totalOfDeaths;
+  @override
+  String get totalOfRecovered;
   @override
   String get dateUpdated;
   @override

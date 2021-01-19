@@ -9,7 +9,7 @@ import 'package:dartz/dartz.dart';
 // whereas interfaces can only have constants and methods stubs.
 
 abstract class IStatsRepository {
-  Future<Either<StatsFailure, Stats>> getStatsByCountryAndState(String country, String state);
+  Future<Either<StatsFailure, Stats>> getStatsAll();
 
   Future<Either<StatsFailure, Stats>> getStatsByCountry(String country);
 }
