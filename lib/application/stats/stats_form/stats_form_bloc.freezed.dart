@@ -404,9 +404,11 @@ class _$StatsFormStateTearOff {
   const _$StatsFormStateTearOff();
 
 // ignore: unused_element
-  _StatsFormState call({@required String selectedCountry}) {
+  _StatsFormState call(
+      {@required String selectedCountry, @required bool isSaving}) {
     return _StatsFormState(
       selectedCountry: selectedCountry,
+      isSaving: isSaving,
     );
   }
 }
@@ -418,6 +420,7 @@ const $StatsFormState = _$StatsFormStateTearOff();
 /// @nodoc
 mixin _$StatsFormState {
   String get selectedCountry;
+  bool get isSaving;
 
   @JsonKey(ignore: true)
   $StatsFormStateCopyWith<StatsFormState> get copyWith;
@@ -428,7 +431,7 @@ abstract class $StatsFormStateCopyWith<$Res> {
   factory $StatsFormStateCopyWith(
           StatsFormState value, $Res Function(StatsFormState) then) =
       _$StatsFormStateCopyWithImpl<$Res>;
-  $Res call({String selectedCountry});
+  $Res call({String selectedCountry, bool isSaving});
 }
 
 /// @nodoc
@@ -443,11 +446,13 @@ class _$StatsFormStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object selectedCountry = freezed,
+    Object isSaving = freezed,
   }) {
     return _then(_value.copyWith(
       selectedCountry: selectedCountry == freezed
           ? _value.selectedCountry
           : selectedCountry as String,
+      isSaving: isSaving == freezed ? _value.isSaving : isSaving as bool,
     ));
   }
 }
@@ -459,7 +464,7 @@ abstract class _$StatsFormStateCopyWith<$Res>
           _StatsFormState value, $Res Function(_StatsFormState) then) =
       __$StatsFormStateCopyWithImpl<$Res>;
   @override
-  $Res call({String selectedCountry});
+  $Res call({String selectedCountry, bool isSaving});
 }
 
 /// @nodoc
@@ -476,26 +481,32 @@ class __$StatsFormStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object selectedCountry = freezed,
+    Object isSaving = freezed,
   }) {
     return _then(_StatsFormState(
       selectedCountry: selectedCountry == freezed
           ? _value.selectedCountry
           : selectedCountry as String,
+      isSaving: isSaving == freezed ? _value.isSaving : isSaving as bool,
     ));
   }
 }
 
 /// @nodoc
 class _$_StatsFormState implements _StatsFormState {
-  const _$_StatsFormState({@required this.selectedCountry})
-      : assert(selectedCountry != null);
+  const _$_StatsFormState(
+      {@required this.selectedCountry, @required this.isSaving})
+      : assert(selectedCountry != null),
+        assert(isSaving != null);
 
   @override
   final String selectedCountry;
+  @override
+  final bool isSaving;
 
   @override
   String toString() {
-    return 'StatsFormState(selectedCountry: $selectedCountry)';
+    return 'StatsFormState(selectedCountry: $selectedCountry, isSaving: $isSaving)';
   }
 
   @override
@@ -504,13 +515,17 @@ class _$_StatsFormState implements _StatsFormState {
         (other is _StatsFormState &&
             (identical(other.selectedCountry, selectedCountry) ||
                 const DeepCollectionEquality()
-                    .equals(other.selectedCountry, selectedCountry)));
+                    .equals(other.selectedCountry, selectedCountry)) &&
+            (identical(other.isSaving, isSaving) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSaving, isSaving)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(selectedCountry);
+      const DeepCollectionEquality().hash(selectedCountry) ^
+      const DeepCollectionEquality().hash(isSaving);
 
   @JsonKey(ignore: true)
   @override
@@ -519,11 +534,14 @@ class _$_StatsFormState implements _StatsFormState {
 }
 
 abstract class _StatsFormState implements StatsFormState {
-  const factory _StatsFormState({@required String selectedCountry}) =
-      _$_StatsFormState;
+  const factory _StatsFormState(
+      {@required String selectedCountry,
+      @required bool isSaving}) = _$_StatsFormState;
 
   @override
   String get selectedCountry;
+  @override
+  bool get isSaving;
   @override
   @JsonKey(ignore: true)
   _$StatsFormStateCopyWith<_StatsFormState> get copyWith;
