@@ -12,15 +12,19 @@ class StatsRepository implements IStatsRepository {
   // 'COVID_API' is the name of the variable inside the .env file
   final apiKey = env['COVID_API'];
 
-  static const statsPath = 'https://coronavirus-smartable.p.rapidapi.com/stats/v1/';
+  static const baseUrl = 'https://covid-19-tracking.p.rapidapi.com/v1/';
 
+  // Ex of total report call: https://covid-19-tracking.p.rapidapi.com/v1/all
   @override
-  Future<Either<StatsFailure, Stats>> getStatsByCountry(String country) async {
+  Future<Either<StatsFailure, Stats>> getStatsAll() async {
     try {
-      final dio = Dio(BaseOptions(baseUrl: statsPath, headers: {'x-rapidapi-key': apiKey}));
-      final response = await dio.get(country);
+      final dio = Dio(BaseOptions(baseUrl: baseUrl, headers: {'x-rapidapi-key': apiKey}));
+      final response = await dio.get('all');
       final json = response.data as Map<String, dynamic>;
-      return right(Stats.fromJson(json));
+      print(json.toString());
+      final stats = Stats.fromJson(json);
+      print(stats.toString());
+      return right(stats);
     } on DioError catch (e) {
       if (e.response.statusCode > 300) {
         return left(const StatsFailure.unableToLocate());
@@ -31,9 +35,19 @@ class StatsRepository implements IStatsRepository {
   }
 
   @override
-  Future<Either<StatsFailure, Stats>> getStatsByCountryAndState(
-      String country, String state) async {
-    // TODO: implement getStatsByCountryAndState
-    throw UnimplementedError();
+  Future<Either<StatsFailure, Stats>> getStatsByCountry(String country) async {
+    // try {
+    //   final dio = Dio(BaseOptions(baseUrl: statsPath, headers: {'x-rapidapi-key': apiKey}));
+    //   final response = await dio.get(country + state);
+    //   final json = response.data as Map<String, dynamic>;
+    //   print(json.toString());
+    //   return right(Stats.fromJson(json));
+    // } on DioError catch (e) {
+    //   if (e.response.statusCode > 300) {
+    //     return left(const StatsFailure.unableToLocate());
+    //   } else {
+    //     return left(const StatsFailure.unexpected());
+    //   }
+    // }
   }
 }
