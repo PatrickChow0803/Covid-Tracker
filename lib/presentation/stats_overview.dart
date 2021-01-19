@@ -10,7 +10,7 @@ class StatsOverview extends StatelessWidget {
       body: Center(
         child: PlatformButton(
           onPressed: () {
-            final stats = statsRepo.getStatsAll();
+            final stats = statsRepo.getStatsByCountry('USA');
           },
           child: const Text('Test getStatsByCountry'),
         ),
