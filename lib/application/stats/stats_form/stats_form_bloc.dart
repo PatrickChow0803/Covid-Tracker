@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:covid_tracker/domain/stats/i_stats_repository.dart';
+import 'package:covid_tracker/domain/stats/i_stats_facade.dart';
+import 'package:covid_tracker/domain/stats/stats.dart';
+import 'package:covid_tracker/infrastructure/stats/stats_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
@@ -13,8 +15,8 @@ part 'stats_form_bloc.freezed.dart';
 
 @injectable
 class StatsFormBloc extends Bloc<StatsFormEvent, StatsFormState> {
-  final IStatsRepository _statsRepository;
-  StatsFormBloc(this._statsRepository) : super(StatsFormState.initial());
+  final IStatsFacade _statsFacade;
+  StatsFormBloc(this._statsFacade) : super(StatsFormState.initial());
 
   @override
   Stream<StatsFormState> mapEventToState(
@@ -29,8 +31,18 @@ class StatsFormBloc extends Bloc<StatsFormEvent, StatsFormState> {
       },
       searchSelected: (e) async* {
         yield state.copyWith(isSaving: true);
-        await _statsRepository.getStatsByCountry(state.selectedCountry);
-        yield state.copyWith(isSaving: false);
+        final covidStatss = await _statsFacade.getStatsAll();
+        yield state.copyWith(
+            isSaving: false,
+            covidStats: covidStatss.fold((l) {
+              print('failure');
+              return null;
+            }, (r) {
+              print('succ');
+              // print(r.toString());
+              return r;
+            }));
+        // print(state.covidStats.toString());
       },
     );
   }

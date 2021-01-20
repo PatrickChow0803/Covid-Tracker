@@ -6,7 +6,11 @@ abstract class StatsFormState with _$StatsFormState {
     @required String selectedCountry,
     // for displaying the progress indicator
     @required bool isSaving,
+    Stats covidStats,
   }) = _StatsFormState;
 
-  factory StatsFormState.initial() => const StatsFormState(selectedCountry: '', isSaving: false);
+  factory StatsFormState.initial() => const StatsFormState(
+        selectedCountry: '',
+        isSaving: false,
+      );
 }

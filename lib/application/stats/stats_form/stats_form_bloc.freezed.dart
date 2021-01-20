@@ -405,10 +405,13 @@ class _$StatsFormStateTearOff {
 
 // ignore: unused_element
   _StatsFormState call(
-      {@required String selectedCountry, @required bool isSaving}) {
+      {@required String selectedCountry,
+      @required bool isSaving,
+      Stats covidStats}) {
     return _StatsFormState(
       selectedCountry: selectedCountry,
       isSaving: isSaving,
+      covidStats: covidStats,
     );
   }
 }
@@ -419,8 +422,9 @@ const $StatsFormState = _$StatsFormStateTearOff();
 
 /// @nodoc
 mixin _$StatsFormState {
-  String get selectedCountry;
+  String get selectedCountry; // for displaying the progress indicator
   bool get isSaving;
+  Stats get covidStats;
 
   @JsonKey(ignore: true)
   $StatsFormStateCopyWith<StatsFormState> get copyWith;
@@ -431,7 +435,9 @@ abstract class $StatsFormStateCopyWith<$Res> {
   factory $StatsFormStateCopyWith(
           StatsFormState value, $Res Function(StatsFormState) then) =
       _$StatsFormStateCopyWithImpl<$Res>;
-  $Res call({String selectedCountry, bool isSaving});
+  $Res call({String selectedCountry, bool isSaving, Stats covidStats});
+
+  $StatsCopyWith<$Res> get covidStats;
 }
 
 /// @nodoc
@@ -447,13 +453,26 @@ class _$StatsFormStateCopyWithImpl<$Res>
   $Res call({
     Object selectedCountry = freezed,
     Object isSaving = freezed,
+    Object covidStats = freezed,
   }) {
     return _then(_value.copyWith(
       selectedCountry: selectedCountry == freezed
           ? _value.selectedCountry
           : selectedCountry as String,
       isSaving: isSaving == freezed ? _value.isSaving : isSaving as bool,
+      covidStats:
+          covidStats == freezed ? _value.covidStats : covidStats as Stats,
     ));
+  }
+
+  @override
+  $StatsCopyWith<$Res> get covidStats {
+    if (_value.covidStats == null) {
+      return null;
+    }
+    return $StatsCopyWith<$Res>(_value.covidStats, (value) {
+      return _then(_value.copyWith(covidStats: value));
+    });
   }
 }
 
@@ -464,7 +483,10 @@ abstract class _$StatsFormStateCopyWith<$Res>
           _StatsFormState value, $Res Function(_StatsFormState) then) =
       __$StatsFormStateCopyWithImpl<$Res>;
   @override
-  $Res call({String selectedCountry, bool isSaving});
+  $Res call({String selectedCountry, bool isSaving, Stats covidStats});
+
+  @override
+  $StatsCopyWith<$Res> get covidStats;
 }
 
 /// @nodoc
@@ -482,12 +504,15 @@ class __$StatsFormStateCopyWithImpl<$Res>
   $Res call({
     Object selectedCountry = freezed,
     Object isSaving = freezed,
+    Object covidStats = freezed,
   }) {
     return _then(_StatsFormState(
       selectedCountry: selectedCountry == freezed
           ? _value.selectedCountry
           : selectedCountry as String,
       isSaving: isSaving == freezed ? _value.isSaving : isSaving as bool,
+      covidStats:
+          covidStats == freezed ? _value.covidStats : covidStats as Stats,
     ));
   }
 }
@@ -495,18 +520,22 @@ class __$StatsFormStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_StatsFormState implements _StatsFormState {
   const _$_StatsFormState(
-      {@required this.selectedCountry, @required this.isSaving})
+      {@required this.selectedCountry,
+      @required this.isSaving,
+      this.covidStats})
       : assert(selectedCountry != null),
         assert(isSaving != null);
 
   @override
   final String selectedCountry;
-  @override
+  @override // for displaying the progress indicator
   final bool isSaving;
+  @override
+  final Stats covidStats;
 
   @override
   String toString() {
-    return 'StatsFormState(selectedCountry: $selectedCountry, isSaving: $isSaving)';
+    return 'StatsFormState(selectedCountry: $selectedCountry, isSaving: $isSaving, covidStats: $covidStats)';
   }
 
   @override
@@ -518,14 +547,18 @@ class _$_StatsFormState implements _StatsFormState {
                     .equals(other.selectedCountry, selectedCountry)) &&
             (identical(other.isSaving, isSaving) ||
                 const DeepCollectionEquality()
-                    .equals(other.isSaving, isSaving)));
+                    .equals(other.isSaving, isSaving)) &&
+            (identical(other.covidStats, covidStats) ||
+                const DeepCollectionEquality()
+                    .equals(other.covidStats, covidStats)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(selectedCountry) ^
-      const DeepCollectionEquality().hash(isSaving);
+      const DeepCollectionEquality().hash(isSaving) ^
+      const DeepCollectionEquality().hash(covidStats);
 
   @JsonKey(ignore: true)
   @override
@@ -536,12 +569,15 @@ class _$_StatsFormState implements _StatsFormState {
 abstract class _StatsFormState implements StatsFormState {
   const factory _StatsFormState(
       {@required String selectedCountry,
-      @required bool isSaving}) = _$_StatsFormState;
+      @required bool isSaving,
+      Stats covidStats}) = _$_StatsFormState;
 
   @override
   String get selectedCountry;
-  @override
+  @override // for displaying the progress indicator
   bool get isSaving;
+  @override
+  Stats get covidStats;
   @override
   @JsonKey(ignore: true)
   _$StatsFormStateCopyWith<_StatsFormState> get copyWith;
