@@ -9,19 +9,52 @@ class StatsForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<StatsFormBloc, StatsFormState>(
+      buildWhen: (previous, current) => previous.isSaving != current.isSaving,
       builder: (context, state) {
-        return PlatformScaffold(
-          body: Center(
-            child: PlatformButton(
-              onPressed: () {
-                context.read<StatsFormBloc>().add(const StatsFormEvent.searchSelected('all'));
-                print('Called from PlayformButton${state.covidStats}');
-              },
-              child: const Text('Test Get All'),
-            ),
-          ),
+        return Stack(
+          children: [
+            StatsScaffoldForm(),
+            SavingInProgressOverlay(isSaving: state.isSaving),
+          ],
         );
       },
+    );
+  }
+}
+
+class StatsScaffoldForm extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return PlatformScaffold(
+      body: Center(
+        child: BlocBuilder<StatsFormBloc, StatsFormState>(builder: (context, state) {
+          return PlatformButton(
+            onPressed: () {
+              context.read<StatsFormBloc>().add(
+                    const StatsFormEvent.searchSelected('all'),
+                  );
+              print('Called from PlayformButton${state.covidStats}');
+            },
+            child: const Text('Test Get All'),
+          );
+        }),
+      ),
+    );
+  }
+}
+
+class SavingInProgressOverlay extends StatelessWidget {
+  final bool isSaving;
+
+  const SavingInProgressOverlay({Key key, this.isSaving}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Visibility(
+        visible: isSaving,
+        child: const CircularProgressIndicator(),
+      ),
     );
   }
 }
