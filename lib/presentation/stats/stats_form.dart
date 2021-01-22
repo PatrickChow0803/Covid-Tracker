@@ -4,6 +4,7 @@ import 'file:///C:/Users/Agela/AndroidStudioProjects/personal/covid_tracker/lib/
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:country_picker/country_picker.dart';
 
 class StatsForm extends StatelessWidget {
   final statsRepo = StatsRepository();
@@ -40,13 +41,29 @@ class StatsScaffoldForm extends StatelessWidget {
       body: Center(
         child: BlocBuilder<StatsFormBloc, StatsFormState>(
           builder: (context, state) {
-            return PlatformButton(
-              onPressed: () {
-                context.read<StatsFormBloc>().add(
-                      const StatsFormEvent.searchSelected('all'),
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                PlatformButton(
+                  onPressed: () {
+                    context.read<StatsFormBloc>().add(
+                          const StatsFormEvent.searchSelected('all'),
+                        );
+                  },
+                  child: const Text('Test Get All'),
+                ),
+                PlatformButton(
+                  child: const Text('Test Get By Country'),
+                  onPressed: () {
+                    showCountryPicker(
+                      context: context,
+                      onSelect: (country) {
+                        print(country);
+                      },
                     );
-              },
-              child: const Text('Test Get All'),
+                  },
+                ),
+              ],
             );
           },
         ),

@@ -42,6 +42,7 @@ dependencies:
   provider: ^4.3.3
   # Widgets will know whether to display Material or Cupertino Widgets
   flutter_platform_widgets: ^0.72.0
+  country_picker: ^1.1.3
 
 
   # The following adds the Cupertino Icons font to your application.
