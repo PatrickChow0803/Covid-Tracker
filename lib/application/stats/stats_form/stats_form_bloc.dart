@@ -34,14 +34,16 @@ class StatsFormBloc extends Bloc<StatsFormEvent, StatsFormState> {
         final covidStatss = await _statsFacade.getStatsAll();
         print("After Call:" + covidStatss.toString());
         yield state.copyWith(
-            isSaving: false,
-            covidStats: covidStatss.fold((l) {
-              print('failure');
-              return null;
-            }, (r) {
-              // print(r.toString());
-              return r;
-            }));
+          isSaving: false,
+          covidStats: covidStatss.fold((l) {
+            print('failure');
+            return null;
+          }, (r) {
+            // print(r.toString());
+            return r;
+          }),
+          navigating: !state.navigating,
+        );
         // print(state.covidStats.toString());
       },
     );

@@ -10,8 +10,9 @@ class StatsForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<StatsFormBloc, StatsFormState>(
-      listenWhen: (previous, current) => previous.covidStats != current.covidStats,
+      listenWhen: (previous, current) => previous.navigating != current.navigating,
       listener: (context, state) {
+        print('Listener ran');
         // if (state.covidStats.totalCases == null) {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => StatsPage(
