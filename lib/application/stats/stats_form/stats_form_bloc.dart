@@ -32,13 +32,13 @@ class StatsFormBloc extends Bloc<StatsFormEvent, StatsFormState> {
       searchSelected: (e) async* {
         yield state.copyWith(isSaving: true);
         final covidStatss = await _statsFacade.getStatsAll();
+        print("After Call:" + covidStatss.toString());
         yield state.copyWith(
             isSaving: false,
             covidStats: covidStatss.fold((l) {
               print('failure');
               return null;
             }, (r) {
-              print('succ');
               // print(r.toString());
               return r;
             }));
