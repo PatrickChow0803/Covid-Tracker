@@ -3,6 +3,17 @@ import 'package:covid_tracker/presentation/stats/stats_page/stats_detail_widget.
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
+const List<String> statsDetail = [
+  'Country: ',
+  'Total Cases',
+  'Active Cases',
+  'New Cases',
+  'New Deaths',
+  'Total Deaths',
+  'Total Recovered',
+  'Date Updated (UTC)',
+];
+
 class StatsPage extends StatelessWidget {
   final Stats searchedStats;
 
@@ -10,10 +21,24 @@ class StatsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> statsNumber = [
+      searchedStats.country,
+      searchedStats.totalCases,
+      searchedStats.activeCases,
+      searchedStats.newCases,
+      searchedStats.newDeaths,
+      searchedStats.totalOfDeaths,
+      searchedStats.totalOfRecovered,
+      searchedStats.dateUpdated,
+    ];
     return Scaffold(
-        body: StatsDetailWidget(
-      statsDetail: searchedStats.totalCases,
-      statsNumber: searchedStats.totalOfDeaths,
-    ));
+      body: ListView.builder(
+        itemBuilder: (context, index) => StatsDetailWidget(
+          statsDetail: statsDetail[index],
+          statsNumber: statsNumber[index],
+        ),
+        itemCount: statsDetail.length,
+      ),
+    );
   }
 }
