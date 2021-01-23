@@ -8,7 +8,7 @@ import 'package:dartz/dartz.dart';
 // Abstract classes can have constants, members, method stubs (methods without a body)
 // whereas interfaces can only have constants and methods stubs.
 
-abstract class IStatsRepository {
+abstract class IStatsFacade {
   Future<Either<StatsFailure, Stats>> getStatsAll();
 
   Future<Either<StatsFailure, Stats>> getStatsByCountry(String country);
